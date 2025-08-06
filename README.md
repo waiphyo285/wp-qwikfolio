@@ -7,3 +7,5 @@ Typically you'd set the `Cache-Control` header for those files to `public, max-a
 ```shell
 npm run build.server
 ```
+
+- wp
