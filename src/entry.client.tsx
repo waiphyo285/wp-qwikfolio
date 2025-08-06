@@ -1,3 +1,3 @@
-import { qwikCity } from '@builder.io/qwik-city/static'
+import { qwikCity } from "@builder.io/qwik-city/vite";
 
-qwikCity()
+qwikCity();

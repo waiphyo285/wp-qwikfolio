@@ -1,0 +1,1 @@
+import{_ as o}from"./q-CSnWScGr.js";import{c as t,q as e}from"./q-BYpjGX92.js";const i=t(e(()=>o(()=>import("./q-DNO8vgCf.js"),[]),"s_v4TzFARpgpg")),n={title:"Projects - Wai Phyo Naing",meta:[{name:"description",content:"Projects and work by Wai Phyo Naing - Full Stack Developer"}]};export{i as default,n as head};

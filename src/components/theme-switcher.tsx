@@ -1,19 +1,20 @@
-import { component$, $ } from '@builder.io/qwik'
-import { useTheme } from './theme-provider'
+import { component$, $ } from "@builder.io/qwik";
+import { useTheme } from "./theme-provider";
 
 export const ThemeSwitcher = component$(() => {
-  const { themeSignal, setTheme } = useTheme()
+  const { themeSignal, setTheme } = useTheme();
 
   const handleToggle = $(() => {
-    const newTheme = themeSignal.value === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-  })
+    const newTheme = themeSignal.value === "light" ? "dark" : "light";
+    // eslint-disable-next-line qwik/valid-lexical-scope
+    setTheme(newTheme);
+  });
 
   return (
     <button
       onClick$={handleToggle}
       class="flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-      title={`Switch to ${themeSignal.value === 'light' ? 'dark' : 'light'} mode`}
+      title={`Switch to ${themeSignal.value === "light" ? "dark" : "light"} mode`}
     >
       {/* Sun icon - visible in dark mode */}
       <svg
@@ -47,5 +48,5 @@ export const ThemeSwitcher = component$(() => {
 
       <span class="sr-only">Toggle theme</span>
     </button>
-  )
-})
+  );
+});

@@ -1,62 +1,64 @@
-import { component$, useVisibleTask$, useSignal, $ } from '@builder.io/qwik'
-import type { DocumentHead } from '@builder.io/qwik-city'
-import { diffDateTime } from '~/lib/utils'
-import QUOTES from '~/data/quotes'
+import { component$, useVisibleTask$, useSignal, $ } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import { diffDateTime } from "~/lib/utils";
+import QUOTES from "~/data/quotes";
 
 export default component$(() => {
   const timeData = useSignal({
-    years: '00',
-    months: '00',
-    days: '00',
-    hours: '00',
-    minutes: '00',
-    seconds: '00',
-  })
+    years: "00",
+    months: "00",
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
 
   const handleShare = $((quote: string) => {
-    if (typeof navigator !== 'undefined' && navigator.share) {
-      navigator.share({ title: 'Wai & Chi', text: quote })
-    } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText(quote)
-      alert('Copied to clipboard (sharing not supported)')
+    if (typeof navigator !== "undefined" && navigator.share) {
+      navigator.share({ title: "Wai & Chi", text: quote });
+    } else if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(quote);
+      alert("Copied to clipboard (sharing not supported)");
     }
-  })
+  });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const updateTime = () => {
-      const duration = diffDateTime('2016-07-26T00:00:00Z')
-      timeData.value = duration
-    }
+      const duration = diffDateTime("2016-07-26T00:00:00Z");
+      timeData.value = duration;
+    };
 
-    updateTime()
-    const interval = setInterval(updateTime, 1000)
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
 
-    return () => clearInterval(interval)
-  })
+    return () => clearInterval(interval);
+  });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(() => {
     const playAudio = () => {
-      const audio = new Audio('/sounds/love-music.mp3')
-      audio.loop = true
+      const audio = new Audio("/sounds/love-music.mp3");
+      audio.loop = true;
       audio.play().catch((err) => {
-        console.error('Autoplay blocked:', err)
-      })
-    }
+        console.error("Autoplay blocked:", err);
+      });
+    };
 
-    document.addEventListener('click', playAudio, { once: true })
-    return () => document.removeEventListener('click', playAudio)
-  })
+    document.addEventListener("click", playAudio, { once: true });
+    return () => document.removeEventListener("click", playAudio);
+  });
 
   return (
     <main class="min-h-screen">
       {/* Snowfall Effect */}
       <div class="pointer-events-none fixed inset-0 z-10 overflow-hidden">
         {Array.from({ length: 50 }).map((_, i) => {
-          const left = Math.random() * 100
-          const delay = Math.random() * 10
-          const duration = 10 + Math.random() * 10
-          const opacity = 0.3 + Math.random() * 0.5
-          const size = 4 + Math.random() * 2
+          const left = Math.random() * 100;
+          const delay = Math.random() * 10;
+          const duration = 10 + Math.random() * 10;
+          const opacity = 0.3 + Math.random() * 0.5;
+          const size = 4 + Math.random() * 2;
 
           return (
             <div
@@ -72,7 +74,7 @@ export default component$(() => {
                 animation: `fall ${duration}s linear infinite`,
               }}
             />
-          )
+          );
         })}
       </div>
 
@@ -104,12 +106,12 @@ export default component$(() => {
 
           <div class="mt-4 grid grid-cols-3 gap-4 text-center text-sm sm:grid-cols-6">
             {[
-              { key: 'years', label: 'years' },
-              { key: 'months', label: 'mons' },
-              { key: 'days', label: 'days' },
-              { key: 'hours', label: 'hours' },
-              { key: 'minutes', label: 'mins' },
-              { key: 'seconds', label: 'secs' },
+              { key: "years", label: "years" },
+              { key: "months", label: "mons" },
+              { key: "days", label: "days" },
+              { key: "hours", label: "hours" },
+              { key: "minutes", label: "mins" },
+              { key: "seconds", label: "secs" },
             ].map((unit) => (
               <div key={unit.key} class="flex flex-col items-center">
                 <h4 class="text-xl font-bold">
@@ -125,13 +127,13 @@ export default component$(() => {
         {QUOTES.slice()
           .reverse()
           .map((quote, index) => {
-            const isLatest = index === 0
+            const isLatest = index === 0;
 
             return (
               <div
                 key={index}
                 class={`${
-                  isLatest ? 'animate-pulse' : ''
+                  isLatest ? "animate-pulse" : ""
                 } rounded-md border-2 border-gray-300 bg-white/10 p-4 text-justify leading-relaxed tracking-tight backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 sm:tracking-normal dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20`}
               >
                 <p
@@ -153,7 +155,7 @@ export default component$(() => {
                   </button>
                 </div>
               </div>
-            )
+            );
           })}
       </div>
 
@@ -175,15 +177,15 @@ export default component$(() => {
         `}
       </style>
     </main>
-  )
-})
+  );
+});
 
 export const head: DocumentHead = {
-  title: 'Our Time - Wai Phyo Naing',
+  title: "Our Time - Wai Phyo Naing",
   meta: [
     {
-      name: 'description',
-      content: 'A special page celebrating love and time together',
+      name: "description",
+      content: "A special page celebrating love and time together",
     },
   ],
-}
+};

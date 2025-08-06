@@ -1,11 +1,11 @@
 {
   "name": "qwik-portfolio",
   "description": "Portfolio website built with Qwik",
+  "private": true,
+  "type": "module",
   "engines": {
     "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
   },
-  "private": true,
-  "type": "module",
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
@@ -16,14 +16,18 @@
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
   "devDependencies": {
     "@builder.io/qwik": "^1.10.0",
     "@builder.io/qwik-city": "^1.10.0",
+    "@builder.io/qwik-city-adapter-static": "^1.10.0",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
@@ -39,8 +43,5 @@
     "@tailwindcss/typography": "^0.5.13",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38"
-  },
-  "dependencies": {
-    "clsx": "^2.1.1"
   }
 }

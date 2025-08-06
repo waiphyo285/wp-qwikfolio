@@ -3,6 +3,7 @@ import SKILLS from "~/data/skills";
 
 // SVG Resource: https://simpleicons.org/
 const getIconSvg = (iconName: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const icons: Record<string, any> = {
     javascript: (
       <svg viewBox="0 0 24 24" class="h-6 w-6" fill="#F7DF1E">
