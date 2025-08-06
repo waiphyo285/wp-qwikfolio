@@ -1,0 +1,38 @@
+const SKILLS: { field: string; skills: { skill: string; icon: string }[] }[] = [
+  {
+    field: 'Technologies',
+    skills: [
+      { skill: 'JavaScript', icon: 'javascript' },
+      { skill: 'TypeScript', icon: 'typescript' },
+      { skill: 'PHP', icon: 'php' },
+      { skill: 'Python', icon: 'python' },
+      { skill: 'Golang', icon: 'go' },
+      { skill: 'Node.js', icon: 'nodejs' },
+      { skill: 'Express.js', icon: 'expressjs' },
+      { skill: 'NestJS', icon: 'nestjs' },
+      { skill: 'MySQL', icon: 'mysql' },
+      { skill: 'PostgresQL', icon: 'psql' },
+      { skill: 'MongoDB', icon: 'mongodb' },
+      { skill: 'TypeORM', icon: 'typeorm' },
+      { skill: 'Prisma', icon: 'prisma' },
+      { skill: 'GraphQL', icon: 'graphql' },
+      { skill: 'Redis', icon: 'redis' },
+      { skill: 'HTML', icon: 'html5' },
+      { skill: 'CSS', icon: 'css3' },
+      { skill: 'Bootstrap', icon: 'bootstrap' },
+      { skill: 'TailwindCSS', icon: 'tailwindcss' },
+      { skill: 'jQuery', icon: 'jquery' },
+      { skill: 'React.js', icon: 'reactjs' },
+      { skill: 'Next.js', icon: 'nextjs' },
+      { skill: 'Redux', icon: 'redux' },
+      { skill: 'React Native', icon: 'reactjs' },
+      { skill: 'Firebase', icon: 'firebase' },
+      { skill: 'Git', icon: 'git' },
+      { skill: 'Digital Ocean', icon: 'digitalocean' },
+      { skill: 'AWS', icon: 'amazon' },
+      { skill: 'Docker', icon: 'docker' },
+    ],
+  },
+]
+
+export default SKILLS
