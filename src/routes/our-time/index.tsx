@@ -96,7 +96,7 @@ export default component$(() => {
           </div>
 
           <p
-            class="text-justify text-md leading-relaxed tracking-tight sm:tracking-normal"
+            class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal"
             // style="font-family: 'Parisienne', cursive;"
           >
             You entered my life out of nowhere — and suddenly, you became my
@@ -134,7 +134,7 @@ export default component$(() => {
                 key={index}
                 class={`${
                   isLatest ? "animate-pulse" : ""
-                } rounded-md border-2 border-gray-300 bg-white/10 p-4 text-justify leading-relaxed tracking-tight backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 sm:tracking-normal dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20`}
+                } rounded-md border-2 border-gray-300 bg-white/10 p-4 leading-relaxed tracking-tight backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 sm:tracking-normal dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20`}
               >
                 <p
                   class="text-md text-sky-500"

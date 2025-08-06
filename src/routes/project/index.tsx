@@ -1,6 +1,6 @@
-import { component$ } from '@builder.io/qwik'
-import type { DocumentHead } from '@builder.io/qwik-city'
-import PROJECTS from '~/data/projects'
+import { component$ } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import PROJECTS from "~/data/projects";
 
 export default component$(() => {
   return (
@@ -9,9 +9,9 @@ export default component$(() => {
 
       <div class="flex flex-col gap-6">
         {PROJECTS.map((project, id) => {
-          const hasLive = project.portfolio && project.portfolio !== '#'
-          const hasRepo = project.repository && project.repository !== '#'
-          const hasAnyLink = hasLive || hasRepo
+          const hasLive = project.portfolio && project.portfolio !== "#";
+          const hasRepo = project.repository && project.repository !== "#";
+          const hasAnyLink = hasLive || hasRepo;
 
           return (
             <div
@@ -64,7 +64,7 @@ export default component$(() => {
                 </div>
 
                 {/* Description */}
-                <p class="mt-2 text-justify leading-relaxed tracking-tight sm:tracking-normal">
+                <p class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal">
                   {project.description}
                 </p>
 
@@ -82,19 +82,19 @@ export default component$(() => {
                 )}
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </>
-  )
-})
+  );
+});
 
 export const head: DocumentHead = {
-  title: 'Projects - Wai Phyo Naing',
+  title: "Projects - Wai Phyo Naing",
   meta: [
     {
-      name: 'description',
-      content: 'Projects and work by Wai Phyo Naing - Full Stack Developer',
+      name: "description",
+      content: "Projects and work by Wai Phyo Naing - Full Stack Developer",
     },
   ],
-}
+};

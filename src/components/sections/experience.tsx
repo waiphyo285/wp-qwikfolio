@@ -1,6 +1,6 @@
-import { component$ } from '@builder.io/qwik'
-import EXPERIENCES from '~/data/experiences'
-import { calcExperienceDuration } from '~/lib/utils'
+import { component$ } from "@builder.io/qwik";
+import EXPERIENCES from "~/data/experiences";
+import { calcExperienceDuration } from "~/lib/utils";
 
 export const Experience = component$(() => {
   return (
@@ -9,10 +9,10 @@ export const Experience = component$(() => {
 
       <div class="flex flex-col gap-6">
         {EXPERIENCES.map((experience, id) => {
-          const { years, months } = calcExperienceDuration(experience)
-          const yearText = years > 0 ? `${years} yr` : ''
-          const monthText = months > 0 ? `${months} mo` : ''
-          const durationText = [yearText, monthText].filter(Boolean).join(' ')
+          const { years, months } = calcExperienceDuration(experience);
+          const yearText = years > 0 ? `${years} yr` : "";
+          const monthText = months > 0 ? `${months} mo` : "";
+          const durationText = [yearText, monthText].filter(Boolean).join(" ");
 
           return (
             <div
@@ -38,23 +38,23 @@ export const Experience = component$(() => {
 
               <div class="mt-1 flex flex-col gap-1 text-sm text-gray-600 sm:flex-row sm:items-center sm:justify-between dark:text-gray-400">
                 <div class="opacity-80 sm:text-right">
-                  {experience.startDate} – {experience.endDate}{' '}
+                  {experience.startDate} – {experience.endDate}{" "}
                   {durationText && ` (${durationText})`}
                 </div>
                 <div>
-                  <span>{experience.location}</span> ·{' '}
-                  <span>{experience.workType}</span> ·{' '}
+                  <span>{experience.location}</span> ·{" "}
+                  <span>{experience.workType}</span> ·{" "}
                   <span>{experience.workMode}</span>
                 </div>
               </div>
 
-              <p class="mt-2 text-justify text-base leading-relaxed tracking-tight sm:tracking-normal">
+              <p class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal">
                 {experience.description}
               </p>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
-})
+  );
+});

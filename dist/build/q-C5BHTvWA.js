@@ -1,1 +1,0 @@
-import{_ as t}from"./q-CSnWScGr.js";import{c as o,q as i}from"./q-BYpjGX92.js";const n=o(i(()=>t(()=>import("./q-PsKXFgRk.js").then(e=>e.i),[]),"s_ZH4AEbBS9Xk")),m={title:"Our Time - Wai Phyo Naing",meta:[{name:"description",content:"A special page celebrating love and time together"}]};export{n as default,m as head};
