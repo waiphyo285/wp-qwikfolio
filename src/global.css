@@ -15,40 +15,55 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 400;
 }
 
+/* Light mode (default) */
 body {
-  --sb-track-color: #ffffff;
-  --sb-thumb-color: #000000;
+  --sb-track-color: #f0f0f0; /* soft light gray */
+  --sb-thumb-color: #c0c0c0; /* soft medium gray */
 }
 
+/* Dark mode */
 html.dark body,
 html.dark .scrollbar {
-  --sb-track-color: #1f1f1f;
-  --sb-thumb-color: #e6e6e6;
+  --sb-track-color: #2a2a2a; /* soft dark gray */
+  --sb-thumb-color: #b0b0b0; /* soft light gray */
 }
 
+/* Thin scrollbar */
 body::-webkit-scrollbar {
-  width: 16px;
+  width: 8px; /* thinner scrollbar */
 }
 
+/* Track styling */
 body::-webkit-scrollbar-track {
   background: var(--sb-track-color);
-  border-left: 4px solid #000;
+  border-left: none; /* remove harsh border */
+  border-radius: 4px;
 }
 
-html.dark body::-webkit-scrollbar-thumb {
-  border-left: 4px solid #000;
-}
-
+/* Thumb styling for light mode */
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
 }
 
+/* Thumb styling for dark mode (optional override) */
+html.dark body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Fallback for Firefox and other browsers */
 @supports not selector(::-webkit-scrollbar) {
   body {
+    scrollbar-width: thin;
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
