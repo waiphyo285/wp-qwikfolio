@@ -161,24 +161,32 @@ export const Skills = component$(() => {
     <>
       <h2 class="mb-8 text-2xl font-bold sm:text-4xl">Skills</h2>
 
-      {SKILLS.map((item, id) => (
-        <div key={id}>
-          <div class="flex flex-wrap gap-5">
-            {item.skills.map((skill, skillId) => (
-              <div
-                key={skillId}
-                class="group relative flex items-center"
-                title={skill.skill}
-              >
-                {getIconSvg(skill.icon)}
-                <div class="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white group-hover:block dark:bg-white dark:text-black">
-                  {skill.skill}
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {SKILLS.map((item, id) => (
+          <div
+            key={id}
+            class="rounded-md border-2 border-gray-300 bg-white/10 p-4 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20"
+          >
+            <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+              {item.field}
+            </h3>
+            <div class="flex flex-wrap gap-4">
+              {item.skills.map((skill, skillId) => (
+                <div
+                  key={skillId}
+                  class="group relative flex items-center"
+                  title={skill.skill}
+                >
+                  {getIconSvg(skill.icon)}
+                  <div class="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white group-hover:block dark:bg-white dark:text-black">
+                    {skill.skill}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </>
   );
 });

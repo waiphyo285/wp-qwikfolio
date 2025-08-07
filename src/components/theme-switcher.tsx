@@ -13,8 +13,7 @@ export const ThemeSwitcher = component$(() => {
   return (
     <button
       onClick$={handleToggle}
-      class="flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-      title={`Switch to ${themeSignal.value === "light" ? "dark" : "light"} mode`}
+      class="group relative flex items-center justify-center rounded-md p-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
     >
       {/* Sun icon - visible in dark mode */}
       <svg
@@ -46,7 +45,11 @@ export const ThemeSwitcher = component$(() => {
         />
       </svg>
 
-      <span class="sr-only">Toggle theme</span>
+      <div class="absolute bottom-full left-1/2 mb-2 hidden -translate-x-1/2 rounded bg-black px-2 py-1 text-xs text-white group-hover:block dark:bg-white dark:text-black">
+        {themeSignal.value === "light" ? "Dark" : "Light"}
+      </div>
+
+      <span class="sr-only">Theme</span>
     </button>
   );
 });
