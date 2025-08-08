@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import EXPERIENCES from "~/data/experiences";
 import { calcExperienceDuration } from "~/lib/utils";
+import { LiquidGlass } from "~/components/liquid-glass";
 
 export const Experience = component$(() => {
   return (
@@ -15,10 +16,7 @@ export const Experience = component$(() => {
           const durationText = [yearText, monthText].filter(Boolean).join(" ");
 
           return (
-            <div
-              key={id}
-              class="rounded-md border-2 border-gray-300 bg-white/10 p-4 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20"
-            >
+            <LiquidGlass key={id} variant="card" class="liquid-flow-hover">
               <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <h3 class="text-xl font-bold sm:text-2xl">
                   {experience.position}
@@ -51,7 +49,7 @@ export const Experience = component$(() => {
               <p class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal">
                 {experience.description}
               </p>
-            </div>
+            </LiquidGlass>
           );
         })}
       </div>

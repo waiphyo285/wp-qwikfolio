@@ -2,6 +2,7 @@ import { component$, useVisibleTask$, useSignal, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { diffDateTime } from "~/lib/utils";
 import QUOTES from "~/data/quotes";
+import { LiquidGlass } from "~/components/liquid-glass";
 
 export default component$(() => {
   const timeData = useSignal({
@@ -86,19 +87,14 @@ export default component$(() => {
       </h1>
 
       <div class="flex flex-col gap-6">
-        <div class="space-y-4 rounded-md border-2 border-gray-300 bg-white/10 p-4 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20">
-          <div
-          //   style="font-family: 'Parisienne', cursive;"
-          >
+        <LiquidGlass variant="hero" class="space-y-4 glass-shimmer-hover">
+          <div>
             <span class="text-sm text-gray-600 dark:text-gray-400">
               Started on Tuesday, 26 July 2016
             </span>
           </div>
 
-          <p
-            class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal"
-            // style="font-family: 'Parisienne', cursive;"
-          >
+          <p class="mt-2 text-base leading-relaxed tracking-tight sm:tracking-normal">
             You entered my life out of nowhere — and suddenly, you became my
             entire world. I can't imagine going anywhere without you, because I
             know everything is always better when we're together.
@@ -121,7 +117,7 @@ export default component$(() => {
               </div>
             ))}
           </div>
-        </div>
+        </LiquidGlass>
 
         {/* Quotes */}
         {QUOTES.slice()
@@ -130,18 +126,14 @@ export default component$(() => {
             const isLatest = index === 0;
 
             return (
-              <div
+              <LiquidGlass
                 key={index}
+                variant="card"
                 class={`${
                   isLatest ? "animate-pulse" : ""
-                } rounded-md border-2 border-gray-300 bg-white/10 p-4 leading-relaxed tracking-tight backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 sm:tracking-normal dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20`}
+                } liquid-flow-hover leading-relaxed tracking-tight sm:tracking-normal`}
               >
-                <p
-                  class="text-md text-sky-500"
-                  //   style="font-family: 'Parisienne', cursive;"
-                >
-                  {quote.text}
-                </p>
+                <p class="text-md text-sky-500">{quote.text}</p>
 
                 <div class="mt-3 flex items-center justify-between">
                   <span class="text-sm text-gray-600 dark:text-gray-400">
@@ -149,12 +141,12 @@ export default component$(() => {
                   </span>
                   <button
                     onClick$={() => handleShare(quote.text)}
-                    class="cursor-pointer rounded-md border border-gray-300 bg-white px-3 py-1 text-center text-sm transition-all hover:bg-gray-50 sm:text-base dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700"
+                    class="liquid-flow-hover cursor-pointer rounded-lg px-3 py-1.5 text-xs font-medium transition-all hover:scale-105 liquid-glass dark:liquid-glass-dark"
                   >
                     Share
                   </button>
                 </div>
-              </div>
+              </LiquidGlass>
             );
           })}
       </div>

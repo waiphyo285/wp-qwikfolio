@@ -23,7 +23,7 @@ export const NavBar = component$(() => {
 
   return (
     <div class="fixed top-5 left-0 z-50 w-full">
-      <nav class="mx-auto flex w-max gap-5 rounded-md border-2 border-gray-300 bg-white/80 p-2.5 px-5 text-sm backdrop-blur-lg sm:text-base dark:border-gray-600 dark:bg-black/80">
+      <nav class="mx-auto flex w-max gap-5 rounded-xl liquid-glass dark:liquid-glass-dark p-2.5 px-5 text-sm sm:text-base glass-shimmer">
         {links.map((link) => (
           <Link
             key={link.path}

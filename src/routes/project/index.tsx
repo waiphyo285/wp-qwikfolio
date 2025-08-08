@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import PROJECTS from "~/data/projects";
+import { LiquidGlass } from "~/components/liquid-glass";
 
 export default component$(() => {
   return (
@@ -14,9 +15,10 @@ export default component$(() => {
           const hasAnyLink = hasLive || hasRepo;
 
           return (
-            <div
+            <LiquidGlass
               key={id}
-              class="rounded-md border-2 border-gray-300 bg-white/10 p-4 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20"
+              variant="card"
+              class="liquid-flow-hover glass-shimmer-hover"
             >
               <div class="font-medium">
                 {/* Title and Links in one line */}
@@ -73,7 +75,7 @@ export default component$(() => {
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        class="rounded-full border border-gray-300 bg-gray-100 px-2 py-1 dark:border-gray-600 dark:bg-gray-800"
+                        class="tech-chip rounded-full px-3 py-1.5 text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -81,7 +83,7 @@ export default component$(() => {
                   </div>
                 )}
               </div>
-            </div>
+            </LiquidGlass>
           );
         })}
       </div>

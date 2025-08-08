@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import SKILLS from "~/data/skills";
+import { LiquidGlass } from "~/components/liquid-glass";
 
 // SVG Resource: https://simpleicons.org/
 const getIconSvg = (iconName: string) => {
@@ -163,9 +164,10 @@ export const Skills = component$(() => {
 
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {SKILLS.map((item, id) => (
-          <div
+          <LiquidGlass
             key={id}
-            class="rounded-md border-2 border-gray-300 bg-white/10 p-4 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 sm:p-6 dark:border-gray-600 dark:bg-black/10 dark:hover:bg-black/20"
+            variant="card"
+            class="glass-shimmer-hover gentle-float-hover"
           >
             <h3 class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
               {item.field}
@@ -184,7 +186,7 @@ export const Skills = component$(() => {
                 </div>
               ))}
             </div>
-          </div>
+          </LiquidGlass>
         ))}
       </div>
     </>
